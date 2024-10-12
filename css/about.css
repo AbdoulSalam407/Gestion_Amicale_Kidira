@@ -1,0 +1,149 @@
+/* Style pour le header */
+header {
+    background-color: #2d6a4f; /* Vert foncé */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+    flex-grow: 1;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.headImage {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-left: 20px;
+    transition: transform 0.3s ease;
+}
+
+.headImage:hover {
+    transform: rotate(360deg);
+}
+
+/* Animation de fade-in pour le titre */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Style pour la navigation */
+nav {
+    background-color: #74c69d; /* Vert plus clair */
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #1b4332; /* Vert encore plus foncé */
+}
+
+/* Style de la section about */
+main {
+    padding: 20px;
+    background-color: #f0f8f5; /* Vert très pâle */
+}
+
+#about {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#about h2 {
+    color: #2d6a4f;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+#about .membre-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+#about .membre-card:hover {
+    transform: translateY(-10px);
+}
+
+.membre-card h3 {
+    color: #1b4332;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.membre-card p {
+    color: #6c757d;
+    font-size: 1rem;
+}
+
+/* Footer style */
+footer {
+    background-color: #2d6a4f;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+    header h1 {
+        font-size: 1.8rem;
+    }
+    .headImage {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}

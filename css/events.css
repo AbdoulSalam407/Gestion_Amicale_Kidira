@@ -1,0 +1,186 @@
+/* Style pour le header */
+header {
+    background-color: #2d6a4f; /* Vert foncé de l'amicale */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+    flex-grow: 1;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.headImage {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-left: 20px;
+    transition: transform 0.3s ease;
+}
+
+.headImage:hover {
+    transform: rotate(360deg);
+}
+
+/* Animation de fade-in pour le titre */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Style pour la navigation */
+nav {
+    background-color: #74c69d; /* Vert plus clair */
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #1b4332; /* Vert encore plus foncé */
+}
+
+/* Style de la section about */
+main {
+    padding: 20px;
+    background-color: #f0f8f5; /* Vert très pâle */
+}
+
+/* Style pour div contenant l'image */
+header div {
+    flex-shrink: 0;
+}
+
+/* Table des événements */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+table th {
+    background-color: #2d6a4f;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Boutons d'action */
+button {
+    background-color: #2d6a4f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1b4b35;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Formulaire */
+.form-section {
+    margin-top: 30px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2 {
+    color: #2d6a4f;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.form-section label {
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"], input[type="date"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Message box */
+#messageBox {
+    background-color: #2d6a4f;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    display: none;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+/* Responsive header */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+    header h1 {
+        font-size: 1.8rem;
+    }
+    .headImage {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+}

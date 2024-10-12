@@ -1,0 +1,183 @@
+/* Style général pour le body */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #2d6a4f; /* Vert foncé */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    color: white;
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin: 0;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+header .headImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.headImage:hover {
+    transform: rotate(360deg);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Style de la navigation */
+nav {
+    background-color: #1b4332; /* Vert plus foncé */
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #95d5b2; /* Vert clair */
+}
+
+/* Style pour le contenu de la page bureau */
+#bureau {
+    margin: 50px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+#bureau h1 {
+    text-align: center;
+    color: #2d6a4f;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Style pour chaque section des membres du bureau */
+.sec {
+    display: flex;
+    margin-bottom: 40px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.sec:hover {
+    transform: scale(1.02);
+}
+
+.sec img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-right: 5px solid #95d5b2;
+}
+
+.sec .left {
+    padding: 20px;
+    background-color: #d8f3dc;
+    width: 40%;
+}
+
+.sec .left h2 {
+    font-size: 1.5rem;
+    color: #1b4332;
+    margin-bottom: 10px;
+}
+
+.sec .left p {
+    margin: 5px 0;
+}
+
+.sec .right {
+    padding: 20px;
+    background-color: #f4f4f9;
+    width: 60%;
+}
+
+.sec .right p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Style pour le footer */
+footer {
+    background-color: #2d6a4f;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .sec {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sec img {
+        width: 100%;
+        border-right: none;
+        border-bottom: 5px solid #95d5b2;
+    }
+
+    .sec .left, .sec .right {
+        width: 100%;
+    }
+}

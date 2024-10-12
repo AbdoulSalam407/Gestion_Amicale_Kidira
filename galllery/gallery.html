@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+    <head>
+        <title>AERKZ</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Présentation de Abdoul Salam DIALLO - CV">
+         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../css/gallery.css">
+    </head>
+    <body>
+        <header>
+            <h1>AMICAL DES ETUDIANTS RESSORTISSANTS DE KIDIRA À ZIGUINCHOR</h1>
+            <div >
+                <img src="../images/logo.png" class="headImage" alt="Logo">
+            </div>
+        </header>
+        <nav>
+            <div class="table">
+                <ul>
+                    <li class="menu-ind">
+                        <a href="../index.html">Accueil</a>
+                    </li>
+                    <li class="menu-propos">
+                        <a href="../apropos/about.html">À propos</a>
+                    </li>
+                    <li class="menu-events">
+                        <a href="../evenement/events.html">Événements</a>
+                    </li>
+                    <li class="menu-news">
+                        <a href="../actualite/news.html">Actualités</a>  
+                    </li>
+                    <li class="menu-gallery">
+                        <a href="gallery.html">Galerie</a>
+                    </li>
+                    <li class="menu-members">
+                        <a href="../membre/members.html">Membres</a>
+                    </li>
+                    <li class="menu-bureau">
+                        <a href="../bureau/bureau.html">Bureau</a>
+                    </li>
+                    <li class="menu-con">
+                        <a href="../contact/contact.html">Contactez-nous !</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </nav>
+        
+    <main>
+        <h2>Galerie de Photos</h2>
+        <div id="galleryContainer">
+            <!-- Les images seront chargées ici -->
+        </div>
+        <button id="ajouterPhoto" onclick="afficherFormulaireAjout()">Ajouter une photo</button>
+
+        <section id="formSection" class="hidden">
+            <h3 id="formTitre">Nouvelle Photo</h3>
+            <form id="formPhoto" onsubmit="return sauvegarderPhoto()">
+                <input type="hidden" id="photoId">
+                <label for="photoUrl">URL de l'image :</label>
+                <input type="text" id="photoUrl" required>
+                <label for="photoDescription">Description :</label>
+                <input type="text" id="photoDescription" required>
+                <button type="submit">Sauvegarder</button>
+                <button type="button" onclick="fermerFormulaire()">Annuler</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright 2024 Association Étudiante. Tous droits réservés.</p>
+    </footer>
+
+    <script src="../javascript/gallery.js"></script>
+</body>
+</html>

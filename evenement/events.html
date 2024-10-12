@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+    <head>
+        <title>AERKZ</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Présentation de Abdoul Salam DIALLO - CV">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../css/events.css">
+    </head>
+    <body>
+        <header>
+            <h1>AMICAL DES ETUDIANTS RESSORTISSANTS DE KIDIRA À ZIGUINCHOR</h1>
+            <div >
+                <img src="../images/logo.png" class="headImage" alt="Logo">
+            </div>
+        </header>
+        <nav>
+            <div class="table">
+                <ul>
+                    <li class="menu-ind">
+                        <a href="../index.html">Accueil</a>
+                    </li>
+                    <li class="menu-propos">
+                        <a href="../apropos/about.html">À propos</a>
+                    </li>
+                    <li class="menu-events">
+                        <a href="events.html">Événements</a>
+                    </li>
+                    <li class="menu-news">
+                        <a href="../actualite/news.html">Actualités</a>  
+                    </li>
+                    <li class="menu-gallery">
+                        <a href="../galllery/gallery.html">Galerie</a>
+                    </li>
+                    <li class="menu-members">
+                        <a href="../membre/members.html">Membres</a>
+                    </li>
+                    <li class="menu-bureau">
+                        <a href="../bureau/bureau.html">Bureau</a>
+                    </li>
+                    <li class="menu-con">
+                        <a href="../contact/contact.html">Contactez-nous !</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </nav>
+    <h1>Gestion des Événements</h1>
+
+    <!-- Section Message -->
+    <div id="messageBox" class="message"></div>
+
+    <!-- Table des événements -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="listeEvents">
+            <!-- Les événements seront chargés ici dynamiquement -->
+        </tbody>
+    </table>
+
+    <!-- Bouton pour ajouter un événement -->
+    <button onclick="afficherFormulaireAjout()">Ajouter un événement</button>
+
+    <!-- Formulaire pour ajouter/modifier un événement -->
+    <div id="formSection" class="form-section hidden">
+        <h2 id="formTitre">Nouvel événement</h2>
+        <form id="formEvent" onsubmit="return sauvegarderEvent()">
+            <label for="eventNom">Nom de l'événement :</label><br>
+            <input type="text" id="eventNom" name="eventNom" required><br><br>
+
+            <label for="eventDate">Date de l'événement :</label><br>
+            <input type="date" id="eventDate" name="eventDate" required><br><br>
+
+            <label for="eventDescription">Description de l'événement :</label><br>
+            <textarea id="eventDescription" name="eventDescription" rows="4" required></textarea><br><br>
+
+            <button type="submit">Enregistrer</button>
+            <button type="button" onclick="fermerFormulaire()">Annuler</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>Copyright 2024 Association Étudiante. Tous droits réservés.</p>
+    </footer>
+
+    <script src="../javascript/events.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Présentation de l'AERK/Z">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AERK/Z</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <header>
+        <h1>AMICAL DES ETUDIANTS RESSORTISSANTS DE KIDIRA À ZIGUINCHOR</h1>
+        <div >
+            <img src="../images/logo.png" class="headImage" alt="Logo">
+        </div>
+    </header>
+    <nav>
+        <div class="table">
+            <ul>
+                <li class="menu-ind">
+                    <a href="index.html">Accueil</a>
+                </li>
+                <li class="menu-propos">
+                    <a href="apropos/about.html">À propos</a>
+                </li>
+                <li class="menu-events">
+                    <a href="evenement/events.html">Événements</a>
+                </li>
+                <li class="menu-news">
+                    <a href="actualite/news.html">Actualités</a>  
+                </li>
+                <li class="menu-gallery">
+                    <a href="galllery/gallery.html">Galerie</a>
+                </li>
+                <li class="menu-members">
+                    <a href="membre/members.html">Membres</a>
+                </li>
+                <li class="menu-bureau">
+                    <a href="bureau/bureau.html">Bureau</a>
+                </li>
+                <li class="menu-con">
+                    <a href="contact/contact.html">Contactez-nous !</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <h2>Liste des Activités</h2>
+        <table id="activitesTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="listeActivites">
+                <!-- Les activités seront chargées ici -->
+            </tbody>
+        </table>
+        <button id="ajouterActivite" onclick="afficherFormulaireAjout()">Ajouter une activité</button>
+
+        <section id="formSection" class="hidden">
+            <h3 id="formTitre">Nouvelle activité</h3>
+            <form id="formActivite" onsubmit="return sauvegarderActivite()">
+                <input type="hidden" id="activiteId">
+                <label for="activiteNom">Nom :</label>
+                <input type="text" id="activiteNom" required>
+                <label for="activiteDescription">Description :</label>
+                <input type="text" id="activiteDescription" required>
+                <button type="submit">Sauvegarder</button>
+                <button type="button" onclick="fermerFormulaire()">Annuler</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright 2024 Association Étudiante. Tous droits réservés.</p>
+    </footer>
+
+    <script src="javascript/index.js"></script>
+</body>
+</html>

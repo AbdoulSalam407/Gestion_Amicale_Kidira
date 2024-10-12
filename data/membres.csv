@@ -1,0 +1,5 @@
+nom,email,role,bio,image
+Nom Président,president@example.com,Président,Description du président,../images/president.jpg
+Nom Vice-Président,vice-president@example.com,Vice-Président,Description du vice-président,../images/vice-president.jpg
+Nom Secrétaire,secretaire@example.com,Secrétaire,Description du secrétaire,../images/secretaire.jpg
+Nom Trésorier,tresorier@example.com,Trésorier,Description du trésorier,../images/tresorier.jpg
