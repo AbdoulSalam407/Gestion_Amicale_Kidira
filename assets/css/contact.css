@@ -1,0 +1,151 @@
+/* Style général */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f3;
+}
+
+/* Style pour le header */
+header {
+    background-color: #2d6a4f; /* Vert de l'amicale */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+    flex-grow: 1;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.headImage {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-left: 20px;
+    transition: transform 0.3s ease;
+}
+
+.headImage:hover {
+    transform: rotate(360deg);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Style pour la navigation */
+nav {
+    background-color: #95d5b2;
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #2d6a4f;
+}
+
+/* Style pour la section de contact */
+.rouge {
+    background-color: #e63946; /* Couleur rouge vive pour contraste */
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.rouge h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.rouge p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.sec strong {
+    color: #f1faee;
+    font-weight: bold;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Style pour le footer */
+footer {
+    background-color: #2d6a4f;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+/* Responsive design pour les petits écrans */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .headImage {
+        width: 50px;
+        height: 50px;
+    }
+
+    .rouge h1 {
+        font-size: 2rem;
+    }
+
+    .rouge p {
+        font-size: 1rem;
+    }
+}
