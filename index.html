@@ -9,11 +9,45 @@
     <link rel="icon" type="image/x-icon" href="images/logo.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/index.css">
+    <style>
+        .activity-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-actions button {
+            margin-right: 10px;
+            padding: 8px 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-actions button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>AMICAL DES ETUDIANTS RESSORTISSANTS DE KIDIRA À ZIGUINCHOR</h1>
-        <div >
+        <div>
             <img src="../images/logo.png" class="headImage" alt="Logo">
         </div>
     </header>
@@ -44,46 +78,112 @@
                 <li class="menu-con">
                     <a href="contact/contact.html">Contactez-nous !</a>
                 </li>
-                
             </ul>
         </div>
     </nav>
-    
     <main>
-        <h2>Liste des Activités</h2>
-        <table id="activitesTable">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nom</th>
-                    <th>Description</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="listeActivites">
-                <!-- Les activités seront chargées ici -->
-            </tbody>
-        </table>
-        <button id="ajouterActivite" onclick="afficherFormulaireAjout()">Ajouter une activité</button>
+        <h2>Gestion des Activités</h2>
 
-        <section id="formSection" class="hidden">
-            <h3 id="formTitre">Nouvelle activité</h3>
-            <form id="formActivite" onsubmit="return sauvegarderActivite()">
-                <input type="hidden" id="activiteId">
-                <label for="activiteNom">Nom :</label>
-                <input type="text" id="activiteNom" required>
-                <label for="activiteDescription">Description :</label>
-                <input type="text" id="activiteDescription" required>
-                <button type="submit">Sauvegarder</button>
-                <button type="button" onclick="fermerFormulaire()">Annuler</button>
-            </form>
+        <section id="activity-list">
+            <h3>Liste des Activités</h3>
+            <div id="activities-container"></div>
+        </section>
+
+        <section id="activity-form">
+            <h3>Ajouter ou Modifier une Activité</h3>
+            <div class="form-group">
+                <label for="activity-id">ID (laisser vide pour ajouter)</label>
+                <input type="text" id="activity-id" readonly>
+            </div>
+            <div class="form-group">
+                <label for="activity-title">Titre</label>
+                <input type="text" id="activity-title">
+            </div>
+            <div class="form-group">
+                <label for="activity-date">Date</label>
+                <input type="date" id="activity-date">
+            </div>
+            <div class="form-group">
+                <label for="activity-description">Description</label>
+                <textarea id="activity-description"></textarea>
+            </div>
+            <div class="form-actions">
+                <button onclick="addOrUpdateActivity()">Sauvegarder</button>
+                <button onclick="resetForm()">Réinitialiser</button>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>Copyright 2024 Association Étudiante. Tous droits réservés.</p>
-    </footer>
+    <script>
+        const apiUrl = '/activities'; // URL de l'API
 
-    <script src="javascript/index.js"></script>
+        async function fetchActivities() {
+            const response = await fetch(apiUrl);
+            const activities = await response.json();
+
+            const container = document.getElementById('activities-container');
+            container.innerHTML = '';
+
+            activities.forEach(activity => {
+                const div = document.createElement('div');
+                div.classList.add('activity-item');
+                div.innerHTML = `
+                    <h4>${activity.title}</h4>
+                    <p><strong>Date :</strong> ${new Date(activity.date).toLocaleDateString()}</p>
+                    <p>${activity.description}</p>
+                    <button onclick="editActivity(${activity.id})">Modifier</button>
+                    <button onclick="deleteActivity(${activity.id})">Supprimer</button>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        async function addOrUpdateActivity() {
+            const id = document.getElementById('activity-id').value;
+            const title = document.getElementById('activity-title').value;
+            const date = document.getElementById('activity-date').value;
+            const description = document.getElementById('activity-description').value;
+
+            const method = id ? 'PUT' : 'POST';
+            const url = id ? `${apiUrl}/${id}` : apiUrl;
+
+            await fetch(url, {
+                method,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title, date, description })
+            });
+
+            resetForm();
+            fetchActivities();
+        }
+
+        function editActivity(id) {
+            fetch(`${apiUrl}/${id}`)
+                .then(response => response.json())
+                .then(activity => {
+                    document.getElementById('activity-id').value = activity.id;
+                    document.getElementById('activity-title').value = activity.title;
+                    document.getElementById('activity-date').value = activity.date;
+                    document.getElementById('activity-description').value = activity.description;
+                });
+        }
+
+        async function deleteActivity(id) {
+            if (confirm('Voulez-vous vraiment supprimer cette activité ?')) {
+                await fetch(`${apiUrl}/${id}`, { method: 'DELETE' });
+                fetchActivities();
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('activity-id').value = '';
+            document.getElementById('activity-title').value = '';
+            document.getElementById('activity-date').value = '';
+            document.getElementById('activity-description').value = '';
+        }
+
+        // Initialiser la liste des activités au chargement
+        fetchActivities();
+    </script>
 </body>
 </html>
